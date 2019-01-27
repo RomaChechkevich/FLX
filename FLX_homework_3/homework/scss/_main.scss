@@ -1,0 +1,288 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+body{
+    background-color: $primary-color;
+    overflow-x: hidden;
+    font: $font;
+}
+
+@mixin background($url, $repeat, $position){
+    background: $url $repeat $position;
+}
+@mixin border($width, $type, $color){
+    border: $width $type $color;
+}
+@mixin transition($time, $easing){
+    transition: $time $easing;
+}
+@mixin button($text-decoration, $color, $background-color, $padding, $text-transform){
+    text-decoration: $text-decoration;
+    color: $color;
+    background-color: $background-color;
+    padding: $padding;
+    text-transform: $text-transform;
+    @include border(1px, solid, $button-border-color);
+    @include transition(.4s, ease-in-out);
+}
+
+header{
+    position: relative;
+    @include background($header-background-url, no-repeat, center center);
+    background-size: cover;
+    height: 100vh;
+    
+    .top-wrapper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        
+        img{
+            width: 235px;
+            height: 145px;
+            object-fit: fill;
+        }
+        
+        nav{
+            display: flex;
+            align-items: center;
+            
+            a{
+                padding: 20px 110px;
+                text-transform: uppercase;
+                color: $nav-link-color;
+                text-decoration: none;
+                font-weight: 700;
+                @include transition(.4s, ease-in-out);
+                
+                &:not(:last-child){
+                    border-right: 2px solid $nav-link-border-color;
+                }
+                
+                &:hover{
+                    color: $nav-link-color-hover;
+                }
+            }
+        }
+    }
+    
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        max-width: $container-width;
+        margin: 0 auto;
+        
+        h1{
+            text-transform: uppercase;
+            color: $header-h1-color;
+            text-align: center;
+        }
+        
+        a{
+            @include button(none, $button-color, $button-background-color, 10px 65px, uppercase);
+            margin-top: 20px;
+            
+            &:hover{
+                color: $button-background-color;
+                background-color: $button-color;
+            }
+        }
+    }
+}
+
+main{
+    background-color: $main-background-color;
+    padding: 25px 0;
+    max-width: $container-width;
+    margin: 0 auto;
+    
+    .toolbar{
+        display: flex;
+        justify-content: flex-end;
+        
+        input{
+            padding: 3px 10px;
+            @include border(1px, solid, $input-color);
+            outline: none;
+            background-color: $input-background-color;
+            
+            &::placeholder{
+                color: $input-color;
+            }
+        }
+    }
+    
+    .post-list{
+        padding: 15px 0;
+        position: relative;
+        
+        h1{
+            text-transform: uppercase;
+            text-align: right;
+            color: $heading-color;
+        }
+        
+        article{
+            background-color: $article-background-color;
+            padding: 7px;
+            display: flex;
+            
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+            
+            > div{
+                padding-left: 7px;
+                text-align: right;
+                
+                .post{
+                    text-align: left;
+                
+                    .post-description{
+                        color: $post-description-color;
+                        font-weight: 500;
+                        padding: 10px 0;
+                        border-bottom: 2px solid $post-description-border-color;
+                        margin-bottom: 10px;
+                    }
+
+                    h3{
+                        color: $post-title-color;
+                        text-transform: uppercase;
+                    }
+
+                    p{
+                        color: $paragraph-color;
+                        margin-top: 5px;
+                    }
+                }
+                
+                button{
+                    @include button(none, $button-color, $button-background-color, 10px 65px, uppercase);
+                    margin-top: 20px;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: $button-background-color;
+                        background-color: $button-color;
+                    }
+                }
+            }
+        }
+    }
+    
+    .about{
+        padding: 35px 0;
+        position: relative;
+        
+        h1{
+            text-align: right;
+            text-transform: uppercase;
+            color: $heading-color;
+        }
+        
+        p{
+            margin-bottom: 15px;
+            color: $paragraph-color;
+        }
+        
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
+    
+    .contact-form{
+        padding: 10px 0;
+        position: relative;
+        
+        h1{
+            text-align: right;
+            color: $heading-color;
+        }
+        
+        h4{
+            text-align: right;
+            color: $heading-color;
+        }
+        
+        form{
+            padding-top: 10px;
+            
+            .contact-form-row{
+                display: flex;
+                margin-bottom: 15px;
+                
+                .contact-form-input{
+                    width: calc(50% - 10px);
+                    margin: 0 5px;
+                    
+                    label{
+                        display: block;
+                        text-align: right;
+                        color: $input-label-color;
+                    }
+                    
+                    input{
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding: 7px;
+                        @include border(1px, solid, $input-color);
+                        outline: none;
+                    }
+                }
+                
+                .contact-form-textarea{
+                    width: calc(100% - 10px);
+                    margin: 0 5px;
+                    
+                    label{
+                        display: block;
+                        text-align: right;
+                        color: $input-label-color;
+                    }
+                    
+                    textarea{
+                        width: 100%;
+                        height: 100px;
+                        @include border(1px, solid, $input-color);
+                        outline: none;
+                    }
+                }
+            }
+            
+            .contact-form-button{
+                display: flex;
+                justify-content: flex-end;
+
+                button{
+                    @include button(none, $button-color, $button-background-color, 10px 65px, uppercase);
+                    cursor: pointer;
+
+                    &:hover{
+                        color: $button-background-color;
+                        background-color: $button-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer{
+    padding: 0 10px 10px;
+}

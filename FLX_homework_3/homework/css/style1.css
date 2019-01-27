@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; }
+
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  font: normal 300 15px/24px Roboto, Ubuntu, Cantarell, Helvetica, sans-serif; }
+
+header {
+  position: relative;
+  background: url(../img/header_background_v1.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100vh; }
+  header .top-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; }
+    header .top-wrapper img {
+      width: 235px;
+      height: 145px;
+      object-fit: fill; }
+    header .top-wrapper nav {
+      display: flex;
+      align-items: center; }
+      header .top-wrapper nav a {
+        padding: 20px 110px;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.4s ease-in-out; }
+        header .top-wrapper nav a:not(:last-child) {
+          border-right: 2px solid #607d8b; }
+        header .top-wrapper nav a:hover {
+          color: #607d8b; }
+  header section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 960px;
+    margin: 0 auto; }
+    header section h1 {
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: center; }
+    header section a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #01acac;
+      padding: 10px 65px;
+      text-transform: uppercase;
+      border: 1px solid #01acad;
+      transition: 0.4s ease-in-out;
+      margin-top: 20px; }
+      header section a:hover {
+        color: #01acac;
+        background-color: #ffffff; }
+
+main {
+  background-color: #ffffff;
+  padding: 25px 0;
+  max-width: 960px;
+  margin: 0 auto; }
+  main .toolbar {
+    display: flex;
+    justify-content: flex-end; }
+    main .toolbar input {
+      padding: 3px 10px;
+      border: 1px solid #000000;
+      outline: none;
+      background-color: #ffffff; }
+      main .toolbar input::placeholder {
+        color: #000000; }
+  main .post-list {
+    padding: 15px 0;
+    position: relative; }
+    main .post-list h1 {
+      text-transform: uppercase;
+      text-align: right;
+      color: #000000; }
+    main .post-list article {
+      background-color: #efefef;
+      padding: 7px;
+      display: flex; }
+      main .post-list article:not(:last-child) {
+        margin-bottom: 10px; }
+      main .post-list article > div {
+        padding-left: 7px;
+        text-align: right; }
+        main .post-list article > div .post {
+          text-align: left; }
+          main .post-list article > div .post .post-description {
+            color: #e90303;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 2px solid #607d8b;
+            margin-bottom: 10px; }
+          main .post-list article > div .post h3 {
+            color: #0097a7;
+            text-transform: uppercase; }
+          main .post-list article > div .post p {
+            color: #000000;
+            margin-top: 5px; }
+        main .post-list article > div button {
+          text-decoration: none;
+          color: #ffffff;
+          background-color: #01acac;
+          padding: 10px 65px;
+          text-transform: uppercase;
+          border: 1px solid #01acad;
+          transition: 0.4s ease-in-out;
+          margin-top: 20px;
+          cursor: pointer; }
+          main .post-list article > div button:hover {
+            color: #01acac;
+            background-color: #ffffff; }
+  main .about {
+    padding: 35px 0;
+    position: relative; }
+    main .about h1 {
+      text-align: right;
+      text-transform: uppercase;
+      color: #000000; }
+    main .about p {
+      margin-bottom: 15px;
+      color: #000000; }
+    main .about img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill; }
+  main .contact-form {
+    padding: 10px 0;
+    position: relative; }
+    main .contact-form h1 {
+      text-align: right;
+      color: #000000; }
+    main .contact-form h4 {
+      text-align: right;
+      color: #000000; }
+    main .contact-form form {
+      padding-top: 10px; }
+      main .contact-form form .contact-form-row {
+        display: flex;
+        margin-bottom: 15px; }
+        main .contact-form form .contact-form-row .contact-form-input {
+          width: calc(50% - 10px);
+          margin: 0 5px; }
+          main .contact-form form .contact-form-row .contact-form-input label {
+            display: block;
+            text-align: right;
+            color: #01acac; }
+          main .contact-form form .contact-form-row .contact-form-input input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 7px;
+            border: 1px solid #000000;
+            outline: none; }
+        main .contact-form form .contact-form-row .contact-form-textarea {
+          width: calc(100% - 10px);
+          margin: 0 5px; }
+          main .contact-form form .contact-form-row .contact-form-textarea label {
+            display: block;
+            text-align: right;
+            color: #01acac; }
+          main .contact-form form .contact-form-row .contact-form-textarea textarea {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #000000;
+            outline: none; }
+      main .contact-form form .contact-form-button {
+        display: flex;
+        justify-content: flex-end; }
+        main .contact-form form .contact-form-button button {
+          text-decoration: none;
+          color: #ffffff;
+          background-color: #01acac;
+          padding: 10px 65px;
+          text-transform: uppercase;
+          border: 1px solid #01acad;
+          transition: 0.4s ease-in-out;
+          cursor: pointer; }
+          main .contact-form form .contact-form-button button:hover {
+            color: #01acac;
+            background-color: #ffffff; }
+
+footer {
+  padding: 0 10px 10px; }

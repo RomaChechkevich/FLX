@@ -1,24 +1,25 @@
 function userCard(numb){
     const date = new Date();
     const dateFormat = date.toLocaleString('en-GB', { timeZone: 'UTC' });
-    let card = {
-        balance : 100,
-        transactionLimit : 100,
-        historyLogs : [],
-        key : numb,
-        
+    
+    let balance = 100;
+    let transactionLimit = 100;
+    let historyLogs = [];
+    let key = numb;
+    
+    return {  
         getCardOptions : function(){
             return {
-                balance : this.balance,
-                transactionLimit : this.transactionLimit,
-                historyLogs : this.historyLogs,
+                balance : balance,
+                transactionLimit : transactionLimit,
+                historyLogs : historyLogs,
                 key : numb
             };
         },
         
         putCredits : function(amount){
-            this.balance = this.balance + amount;
-            this.historyLogs.push({
+            balance = balance + amount;
+            historyLogs.push({
                 operationType : 'Recieved credits',
                 credits : amount,
                 operationTime : dateFormat
@@ -26,9 +27,9 @@ function userCard(numb){
         },
         
         takeCredits : function(amount){
-            if( this.transactionLimit > amount && this.balance > amount ){
-                this.balance = this.balance - amount;
-                this.historyLogs.push({
+            if( transactionLimit > amount && balance > amount ){
+                balance = balance - amount;
+                historyLogs.push({
                     operationType : 'Withdrawal of credits',
                     credits : amount,
                     operationTime : dateFormat
@@ -39,8 +40,8 @@ function userCard(numb){
         },
         
         setTransactionLimit : function(limit){
-            this.transactionLimit = limit;
-            this.historyLogs.push({
+            transactionLimit = limit;
+            historyLogs.push({
                 operationType : 'Transaction limit change',
                 credits : limit,
                 operationTime : dateFormat
@@ -48,28 +49,16 @@ function userCard(numb){
         },
         
         transferCredits : function(amount,card){
-            if(this.balance > amount || this.transactionLimit > amount){
+            if(balance > amount || transactionLimit > amount){
                 const taxCoef = 0.005;
-                const tax = amount * taxCoef;
-                this.balance = this.balance - amount - tax;
-                this.historyLogs.push({
-                    operationType : 'Withdrawal of credits',
-                    credits : amount,
-                    operationTime : dateFormat
-                });
-                
-                card.balance = card.balance + amount;
-                card.historyLogs.push({
-                    operationType : 'Recieved credits',
-                    credits : amount,
-                    operationTime : dateFormat
-                });
+                const tax = amount * taxCoef + amount;
+                this.takeCredits(tax);
+                card.putCredits(amount);
             } else{
                 console.error('Credits you want to transfer is greater than transaction limit or remaining balance');
             }
         }  
-    }
-    return card;
+    }    
 }
 
 

@@ -1,0 +1,112 @@
+.todo-list{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    border: 2px solid #eeeeee;
+}
+.todo-list-container{
+    padding: 30px 30px;
+}
+.todo-list-heading{
+    text-align: center;
+}
+.todo-list-heading h2{
+    margin: 0;
+}
+.todo-list-heading p{
+    display: none;
+}
+.todo-list-heading p.active{
+    display: block;
+}
+.todo-list-form{
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #000000;
+}
+.todo-list-form input{
+    outline: none;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    width: 100%;
+    margin-right: 10px;
+}
+.todo-list-form button{
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+.todo-list-form i{
+    font-size: 38px;
+}
+.todo-list-items{
+    padding: 15px 0; 
+    list-style-type: none;
+    margin: 0;
+}
+.todo-list-item{
+    padding: 3px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+.todo-list-check{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.todo-list-check input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    border: 2px solid #000000;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+.todo-list-check input[type="checkbox"] + i{
+    display: none;
+}
+.todo-list-check input[type="checkbox"]:checked{
+    background-color: #000000;
+}
+.todo-list-check input[type="checkbox"]:checked + i{
+    display: block;
+    color: #ffffff;
+    cursor: pointer;
+}
+.todo-list-check label{
+    padding-left: 10px;
+}
+.todo-list-check > i{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 21px;
+}
+.todo-list-item a i{
+    color: #000000;
+}
+.todo-list-footer{
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;   
+}
+.todo-list-footer img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+

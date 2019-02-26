@@ -75,7 +75,4 @@ ul.todo li .buttons button {
   box-shadow: none;
   outline: none;
   cursor: pointer;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
